@@ -7,23 +7,30 @@
 <body>
     <h2>Finance calculator</h2>
     <div class="calc-container">
-        <div>
-            <span>Salary:</span>
-            <input type="number" id="salary">
-            <p>Enter salary to the nearest 1000 pounds</p>
+        <div class="calculator">
+            <div>
+                <span>Salary: £</span>
+                <input type="number" id="salary" placeholder="25000">
+                <p>Enter salary to the nearest 1000 pounds</p>
+            </div>
+            <div>
+                <span>Loan amount: £</span>
+                <input type="number" id="borrowAmount" placeholder="0">
+                <p>Please enter a number to the nearest 100 pounds</p>
+            </div>
+            <div>
+                <span>Repayment percentage:</span>
+                <input type="number" id="repayment%" placeholder="10">
+                <span>%</span>
+                <p>Please enter a whole number for percentage</p>
+            </div>
+            <div>
+                <button>Calculate</button>
+            </div>
         </div>
-        <div>
-            <span>Loan amount:</span>
-            <input type="number" id="borrowAmount">
-            <p>Please enter a number to the nearest 100 pounds</p>
-        </div>
-        <div>
-            <span>Repayment percentage:</span>
-            <input type="number" id="repayment%">
-            <p>Please enter a whole number for percentage</p>
-        </div>
-        <div>
-            <button>Calculate</button>
+        <div class="result">
+            <p>Admin fee: £<span></span></p>
+            <p>Loan repayment duration: <span></span> months.</p>
         </div>
     </div>
 </body>
