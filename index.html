@@ -9,7 +9,7 @@
     <div class="calc-container">
         <div class="calculator">
             <div>
-                <span>Salary: £</span>
+                <span>Annual Salary: £</span>
                 <input type="number" id="salary" placeholder="25000">
                 <p>Enter salary to the nearest 1000 pounds</p>
             </div>
@@ -17,6 +17,7 @@
                 <span>Loan amount: £</span>
                 <input type="number" id="borrowAmount" placeholder="0">
                 <p>Please enter a number to the nearest 100 pounds</p>
+                <p id="loanErrorMsg"></p>
             </div>
             <div>
                 <span>Repayment percentage:</span>
@@ -31,6 +32,7 @@
         <div class="result">
             <p>Upfront admin fee: £<span id="adminFee"></span></p>
             <p>Total amount borrowed: £<span id="loan"></span></p>
+            <p>Monthly repayment amount: £<span id="monthlyRepaymentCost"></span></p>
             <p>Loan repayment duration: <span></span> months.</p>
         </div>
     </div>

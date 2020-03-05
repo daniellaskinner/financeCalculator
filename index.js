@@ -22,47 +22,61 @@ function getInputBorrowAmount() {
 }
 
 //monthly repayment percentage: default/minimum 10%
+//divide repayment percentage by 100 to get %multiplier so can x by salary to get monthly repaymemt amount
 function getInputRepaymentPercentage() {
     let repaymentPercentage = document.getElementById("repayment%").value
     if(repaymentPercentage == 0 || !repaymentPercentage) {
         let repaymentPercentage = 10
-        return repaymentPercentage
+        return (repaymentPercentage / 100)
     } else {
-        return repaymentPercentage
+        return (repaymentPercentage / 100)
     }
 }
 
 
-//calculation function
-//admin fee is up front amount before borrowed amount or anything then additional 500 pounds depending on how much borrowed
-//going to need a + or parseint in front of borrowed amount to treat like number so it doesn't concatenate
+//calculate admin fee function- take 5 percent of loan amount
 function getAdminFee (borrowAmount) {
     return ((borrowAmount/100) * 5)
 }
 
-// var borrowAmountPlusAdminFee = getAdminFee(getInputBorrowAmount())
+//function to show an error if loan entered is over £8000
+function showError() {
+    document.getElementById("loanErrorMsg").textContent = "Only loans up to £8,000 are provided."
+}
 
 //calculating repayment amount use function calls above to use inputs in calc
 function calculateRepaymentAmount (borrowAmount) {
-    if (borrowAmountPlusAdminFee > 6400 && borrowAmountPlusAdminFee <= 7200) {
-        let repaymentAmount = addAdminFee(borrowAmount) + 500
+    if(borrowAmount > 6400 && borrowAmount <= 7200) {
+        let repaymentAmount = (parseInt(borrowAmount) + 500)
         return repaymentAmount
-    } if (borrowAmountPlusAdminFee > 7200 && borrowAmountPlusAdminFee <= 8000) {
-        let repaymentAmount = addAdminFee(borrowAmount) + 500
+    } if(borrowAmount > 7200 && borrowAmount <= 8000) {
+        let repaymentAmount = (parseInt(borrowAmount) + 500)
         return repaymentAmount
-    } else {
-        return  addAdminFee(borrowAmount)
+    } if(borrowAmount > 8000) {
+        showError()
+    }
+    else {
+        let repaymentAmount = borrowAmount
+        return repaymentAmount
     }
 }
 
-//divide repayment percentage by 100 to get decimal so can x by decimal to get monthly amount to pay back
-
-
-
-//add event listener to button to trigger the calculate function
+//add event listener to button to trigger the calculations
+//set visibility of results div to visible and fade in gradually
 document.querySelector("button").addEventListener("click", ()=> {
     document.getElementById("loan").textContent = getInputBorrowAmount()
     document.getElementById("adminFee").textContent = getAdminFee(getInputBorrowAmount())
-    console.log(getCustomerSalary())
-    console.log(getInputRepaymentPercentage())
+    //get monthly repayment amount by doing repayment percentage * monthly salary
+    let monthlyRepaymentAmount = (getInputRepaymentPercentage() * (getCustomerSalary()/12))
+    document.getElementById("monthlyRepaymentCost").textContent = monthlyRepaymentAmount
+
 })
+
+
+let totalBorrowAmount = getInputBorrowAmount()
+console.log(calculateRepaymentAmount(totalBorrowAmount))
+
+//want how many months to pay back loan. amount in loan / monthly repayment amount
+function calculateLoanDuration(totalBorrowAmount, monthlyRepaymentAmount) {
+
+}

@@ -40,6 +40,10 @@ input {
     color: gray;
 }
 
+#loanErrorMsg {
+    color: red;
+}
+
 button {
     margin-top: 5px;
     width: 100px;
