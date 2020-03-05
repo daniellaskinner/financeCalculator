@@ -1,0 +1,33 @@
+body {
+    font-family: verdana;
+}
+
+h2 {
+  margin: 20px;
+}
+
+.calc-container {
+    padding: 10px;
+}
+
+.calc-container div {
+    padding: 10px;
+}
+
+input {
+    border-radius: 5px;
+    width: 80px;
+}
+
+.calc-container p {
+    font-size: 10px;
+    color: gray;
+}
+
+button {
+    margin-top: 5px;
+    width: 100px;
+    height: 40px;
+    border-radius: 5px;
+    font-size: 15px;
+}
