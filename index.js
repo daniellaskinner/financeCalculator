@@ -10,6 +10,7 @@ function getCustomerSalary() {
     }
 }
 
+//add error message for borrow amount >8000
 function getInputBorrowAmount() {
     let borrowAmount = document.getElementById("borrowAmount").value
     if(borrowAmount == 0 || !borrowAmount) {
@@ -35,11 +36,11 @@ function getInputRepaymentPercentage() {
 //calculation function
 //admin fee is up front amount before borrowed amount or anything then additional 500 pounds depending on how much borrowed
 //going to need a + or parseint in front of borrowed amount to treat like number so it doesn't concatenate
-function addAdminFee (borrowAmount) {
+function getAdminFee (borrowAmount) {
     return ((borrowAmount/100) * 5)
 }
 
-var borrowAmountPlusAdminFee = calculateAdminFee(borrowAmount)
+// var borrowAmountPlusAdminFee = getAdminFee(getInputBorrowAmount())
 
 //calculating repayment amount use function calls above to use inputs in calc
 function calculateRepaymentAmount (borrowAmount) {
@@ -60,7 +61,8 @@ function calculateRepaymentAmount (borrowAmount) {
 
 //add event listener to button to trigger the calculate function
 document.querySelector("button").addEventListener("click", ()=> {
+    document.getElementById("loan").textContent = getInputBorrowAmount()
+    document.getElementById("adminFee").textContent = getAdminFee(getInputBorrowAmount())
     console.log(getCustomerSalary())
-    console.log(getInputBorrowAmount())
     console.log(getInputRepaymentPercentage())
 })
