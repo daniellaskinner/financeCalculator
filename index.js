@@ -61,22 +61,21 @@ function calculateRepaymentAmount (borrowAmount) {
     }
 }
 
+//want how many months to pay back loan. amount in loan / monthly repayment amount
+function calculateLoanDuration(totalLoanAmount, monthlyRepaymentAmount) {
+    return Math.ceil(totalLoanAmount/monthlyRepaymentAmount)
+}
+
+
 //add event listener to button to trigger the calculations
-//set visibility of results div to visible and fade in gradually
 document.querySelector("button").addEventListener("click", ()=> {
+    // document.getElementById("result").classList.add('resultShow')
     document.getElementById("loan").textContent = getInputBorrowAmount()
     document.getElementById("adminFee").textContent = getAdminFee(getInputBorrowAmount())
     //get monthly repayment amount by doing repayment percentage * monthly salary
     let monthlyRepaymentAmount = (getInputRepaymentPercentage() * (getCustomerSalary()/12))
-    document.getElementById("monthlyRepaymentCost").textContent = monthlyRepaymentAmount
-
+    document.getElementById("monthlyRepaymentCost").textContent = parseInt(monthlyRepaymentAmount)
+    let borrowAmount = getInputBorrowAmount()
+    let totalLoanCost = calculateRepaymentAmount(borrowAmount)
+    document.getElementById("loanDuration").textContent = calculateLoanDuration(totalLoanCost, monthlyRepaymentAmount)
 })
-
-
-let totalBorrowAmount = getInputBorrowAmount()
-console.log(calculateRepaymentAmount(totalBorrowAmount))
-
-//want how many months to pay back loan. amount in loan / monthly repayment amount
-function calculateLoanDuration(totalBorrowAmount, monthlyRepaymentAmount) {
-
-}
