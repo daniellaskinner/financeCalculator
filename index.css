@@ -1,5 +1,6 @@
 body {
     font-family: verdana;
+    animation: rainbow-background 5s linear infinite;
 }
 
 h2 {
@@ -42,7 +43,7 @@ input {
 
 .calculator p {
     font-size: 10px;
-    color: gray;
+    color: dimgray;
 }
 
 #loanErrorMsg {
@@ -93,44 +94,4 @@ button {
     100% {
         background: rgba(242, 58, 205, 0.5);
     }
-}
-
-@keyframes rainbow-text {
-    0% {
-        color: rgba(148, 0, 211, 0.5);
-    }
-    10% {
-        color: rgba(75, 0, 130, 0.5);
-    }
-    20% {
-        color: rgba(0, 0, 255, 0.5);
-    }
-    30% {
-        color: rgba(53, 161, 232, 0.5);
-    }
-    40% {
-        color: rgba(0, 255, 0, 0.5);
-    }
-    50% {
-        color: rgba(255, 255, 0, 0.5);
-    }
-    60% {
-        color: rgba(255, 162, 0, 0.5);
-    }
-    70% {
-        color: rgba(255, 127, 0, 0.5);
-    }
-    80% {
-        color: rgba(255, 0 , 0, 0.5);
-    }
-    90% {
-        color: rgba(255, 105, 180, 0.5);
-    }
-    100% {
-        color: rgba(242, 58, 205, 0.5);
-    }
-}
-
-body {
-    animation: rainbow-background 10s linear infinite;
 }
