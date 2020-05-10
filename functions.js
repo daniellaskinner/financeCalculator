@@ -1,9 +1,9 @@
 //function for grabbing each input return input value
 //for salary set default of 25000 if no input or 0 is entered
 function getCustomerSalary() {
-    let salary = document.getElementById("salary").value
+    let salary = document.getElementById("salary").value;
     if(salary == 0 || !salary) {
-        let salary = 25000
+        let salary = 25000;
         return salary
     } else {
         return salary
@@ -13,7 +13,7 @@ function getCustomerSalary() {
 
 //add error message for borrow amount >8000
 function getInputBorrowAmount() {
-    let borrowAmount = document.getElementById("borrowAmount").value
+    let borrowAmount = document.getElementById("borrowAmount").value;
     if(borrowAmount > 8000 || borrowAmount <= 0) {
         showLoanAmountError()
     } else {
@@ -25,9 +25,9 @@ function getInputBorrowAmount() {
 //monthly repayment percentage: default/minimum 10%
 //divide repayment percentage by 100 to get %multiplier so can x by salary to get monthly repaymemt amount
 function getInputMonthlyRepaymentPercentage() {
-    let repaymentPercentage = document.getElementById("repayment%").value
+    let repaymentPercentage = document.getElementById("repayment%").value;
     if(repaymentPercentage == 0 || !repaymentPercentage) {
-        let repaymentPercentage = 10
+        let repaymentPercentage = 10;
         return (repaymentPercentage / 100)
     } else {
         return (repaymentPercentage / 100)
@@ -44,17 +44,17 @@ function getAdminFee (borrowAmount) {
 //calculating repayment amount use function calls above to use inputs in calc
 function calculateRepaymentAmount (borrowAmount) {
     if(borrowAmount > 6400 && borrowAmount <= 7200) {
-        let repaymentAmount = (parseInt(borrowAmount) + 500)
+        let repaymentAmount = (parseInt(borrowAmount) + 500);
         return repaymentAmount
     } if(borrowAmount > 7200 && borrowAmount <= 8000) {
-        let repaymentAmount = (parseInt(borrowAmount) + 500)
+        let repaymentAmount = (parseInt(borrowAmount) + 500);
         return repaymentAmount
     } if(borrowAmount > 8000) {
-        return "N/A"
-        showError()
+        return "N/A";
+        showError();
     }
     else {
-        let repaymentAmount = borrowAmount
+        let repaymentAmount = borrowAmount;
         return repaymentAmount
     }
 }
