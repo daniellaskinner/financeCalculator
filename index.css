@@ -1,6 +1,12 @@
+*{
+    font-family: 'Questrial';
+    box-sizing: border-box;
+    margin: 0 auto;
+}
+
 body {
-    font-family: verdana;
-    animation: rainbow-background 5s linear infinite;
+    background-color: #000000;
+    color: #ffffff;
 }
 
 h2 {
@@ -9,6 +15,13 @@ h2 {
 
 .calc-container {
     overflow: auto;
+    width: 800px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 5px;
+    text-align: center;
 }
 
 .calculator {
@@ -36,6 +49,10 @@ h2 {
 /*    visibility: visible;*/
 /*}*/
 
+#result>p {
+    margin: 15px;
+}
+
 input {
     border-radius: 5px;
     width: 80px;
@@ -58,40 +75,4 @@ button {
     font-size: 15px;
     color: white;
     background-color: forestgreen;
-}
-
-@keyframes rainbow-background {
-    0% {
-        background: rgba(148, 0, 211, 0.5);
-    }
-    10% {
-        background: rgba(75, 0, 130, 0.5);
-    }
-    20% {
-        background: rgba(0, 0, 255, 0.5);
-    }
-    30% {
-        background: rgba(53, 161, 232, 0.5);
-    }
-    40% {
-        background: rgba(0, 255, 0, 0.5);
-    }
-    50% {
-        background: rgba(255, 255, 0, 0.5);
-    }
-    60% {
-        background: rgba(255, 162, 0, 0.5);
-    }
-    70% {
-        background: rgba(255, 127, 0, 0.5);
-    }
-    80% {
-        background: rgba(255, 0 , 0, 0.5);
-    }
-    90% {
-        background: rgba(255, 105, 180, 0.5);
-    }
-    100% {
-        background: rgba(242, 58, 205, 0.5);
-    }
 }
